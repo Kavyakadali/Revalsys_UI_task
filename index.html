@@ -133,13 +133,13 @@
             overflow: hidden;
         }
 
-         .hero-section1 {
+        .hero-section1 {
             min-height: 100vh;
             background-image: url("./images/page2.svg");
             background-repeat: no-repeat;
             background-position: center center;
             background-size: cover;
-            padding:80px;
+            padding: 80px;
             position: relative;
             overflow: hidden;
         }
@@ -446,7 +446,7 @@
             letter-spacing: -2px;
         }
 
-        /* Interactive Canvas Section - FIXED */
+        /* Interactive Canvas Section */
         .interactive-canvas-section {
             width: 100%;
             min-height: 800px;
@@ -485,10 +485,112 @@
             letter-spacing: -2px;
         }
 
+        /* Publish Section */
+        .publish-section {
+            width: 100%;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background-image: url('./images/web.svg');
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .publish-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+        }
+
+        .publish-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            max-width: 800px;
+            padding: 0 24px;
+        }
+
+        .publish-headline {
+            font-size: 72px;
+            font-weight: 700;
+            color: white;
+            line-height: 1.1;
+            letter-spacing: -2.5px;
+            margin-bottom: 48px;
+        }
+
+        .publish-btn-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .btn-publish {
+            background: #0099ff;
+            color: white;
+            border: none;
+            padding: 20px 48px;
+            border-radius: 14px;
+            font-size: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 32px rgba(0, 153, 255, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-publish:hover {
+            background: #0088ee;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 48px rgba(0, 153, 255, 0.5);
+        }
+
+        .hand-pointer {
+            position: absolute;
+            width: 80px;
+            height: auto;
+            bottom: -20px;
+            right: -30px;
+            z-index: 3;
+            animation: pointClick 2s ease-in-out infinite;
+        }
+
+        @keyframes pointClick {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(-4px, -4px) scale(0.95);
+            }
+        }
+
+        .publish-subtext {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 24px;
+            font-weight: 500;
+        }
+
         /* Responsive */
         @media (max-width: 1200px) {
             .preview-side {
                 width: 200px;
+            }
+
+            .hero-section1 {
+                padding: 60px 40px;
             }
         }
 
@@ -511,6 +613,14 @@
             .overlay-headline {
                 font-size: 42px;
             }
+
+            .editor-section {
+                padding: 70px 32px;
+            }
+
+            .hero-section1 {
+                padding: 40px 24px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -519,12 +629,37 @@
             }
 
             .top-bar {
-                padding: 14px 20px;
+                padding: 12px 16px;
+            }
+
+            .nav-container {
+                gap: 12px;
+            }
+
+            .btn-login {
+                display: none;
+            }
+
+            .btn-signup {
+                padding: 8px 14px;
+                font-size: 14px;
+            }
+
+            .hero-section {
+                padding-top: 80px;
+                padding-bottom: 40px;
             }
 
             .hero-title {
                 font-size: 48px;
                 letter-spacing: -1.5px;
+                margin-bottom: 24px;
+            }
+
+            .announcement {
+                font-size: 16px;
+                padding: 5px 12px;
+                margin-bottom: 24px;
             }
 
             .search-box {
@@ -533,17 +668,107 @@
                 padding: 14px;
             }
 
+            .search-input {
+                text-align: center;
+                font-size: 15px;
+            }
+
             .btn-start {
                 width: 100%;
                 justify-content: center;
+                padding: 14px 20px;
             }
 
             .companies-logos {
-                gap: 32px;
+                gap: 24px;
+            }
+
+            .companies-logos img {
+                max-width: 100%;
+                height: auto;
             }
 
             .companies-section {
-                margin-top: 80px;
+                margin-top: 60px;
+            }
+
+            .companies-text {
+                font-size: 12px;
+            }
+
+            /* Editor Section Mobile */
+            .hero-section1 {
+                padding: 20px 12px;
+                min-height: auto;
+            }
+
+            .top-toolbar {
+                padding: 8px 10px;
+                height: auto;
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+
+            .toolbar-left {
+                width: 100%;
+                justify-content: space-between;
+                gap: 6px;
+                order: 1;
+            }
+
+            .toolbar-right {
+                width: 100%;
+                justify-content: flex-end;
+                gap: 8px;
+                order: 2;
+            }
+
+            .logo-btn {
+                padding: 8px 10px;
+                font-size: 12px;
+                height: 32px;
+                flex-shrink: 0;
+            }
+
+            .logo-btn img {
+                max-height: 16px;
+            }
+
+            .tool-btn {
+                padding: 8px 10px;
+                font-size: 12px;
+                height: 32px;
+                white-space: nowrap;
+            }
+
+            .tool-btn span {
+                display: inline-flex;
+            }
+
+            .tool-btn span img {
+                max-width: 16px;
+                max-height: 16px;
+            }
+
+            .publish-btn {
+                padding: 8px 16px;
+                font-size: 13px;
+                height: 32px;
+            }
+
+            .user-avatars {
+                display: none;
+            }
+
+            .avatar {
+                width: 24px;
+                height: 24px;
+                margin-left: -8px;
+            }
+
+            .editor-preview {
+                min-height: 400px;
             }
 
             .canvas-headline,
@@ -553,17 +778,165 @@
             }
 
             .canvas-text-section {
-                padding: 80px 24px;
+                padding: 60px 20px;
             }
 
-            .interactive-canvas-section {
-                min-height: 500px;
+            /* Publish Section Mobile */
+            .publish-section {
+                background-image: url('./images/publish.svg');
+            }
+
+            .publish-headline {
+                font-size: 42px;
+                letter-spacing: -1.5px;
+                margin-bottom: 36px;
+            }
+
+            .btn-publish {
+                padding: 16px 36px;
+                font-size: 18px;
+            }
+
+            .hand-pointer {
+                width: 60px;
+                bottom: -15px;
+                right: -20px;
+            }
+
+            .publish-subtext {
+                font-size: 16px;
             }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 38px;
+                font-size: 36px;
+                line-height: 1.1;
+            }
+
+            .announcement {
+                font-size: 14px;
+            }
+
+            .search-container {
+                max-width: 100%;
+            }
+
+            .companies-section {
+                margin-top: 50px;
+            }
+
+            .companies-logos {
+                gap: 20px;
+                padding: 0 12px;
+            }
+
+            /* Editor toolbar mobile - even more compact */
+            .top-toolbar {
+                padding: 6px 8px;
+                gap: 8px;
+            }
+
+            .toolbar-left {
+                overflow-x: auto;
+                overflow-y: hidden;
+                flex-wrap: nowrap;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .toolbar-left::-webkit-scrollbar {
+                display: none;
+            }
+
+            .logo-btn {
+                padding: 6px 8px;
+                font-size: 11px;
+                height: 28px;
+            }
+
+            .tool-btn {
+                padding: 6px 8px;
+                font-size: 11px;
+                height: 28px;
+                flex-shrink: 0;
+            }
+
+            .tool-btn span img {
+                max-width: 14px;
+                max-height: 14px;
+            }
+
+            /* Hide text on some toolbar buttons to save space */
+            .toolbar-left .tool-btn:nth-child(n+3) span+text {
+                display: none;
+            }
+
+            .publish-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+                height: 28px;
+            }
+
+            .editor-preview {
+                min-height: 300px;
+            }
+
+            .canvas-headline,
+            .overlay-headline {
+                font-size: 26px;
+                padding: 0 16px;
+            }
+
+            .canvas-text-section {
+                padding: 50px 16px;
+            }
+
+            .interactive-canvas-section {
+                min-height: 350px;
+            }
+
+            /* Publish Section Small Mobile */
+            .publish-section {
+                min-height: 80vh;
+            }
+
+            .publish-headline {
+                font-size: 32px;
+                letter-spacing: -1px;
+                margin-bottom: 28px;
+            }
+
+            .btn-publish {
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+
+            .hand-pointer {
+                width: 50px;
+                bottom: -12px;
+                right: -15px;
+            }
+
+            .publish-subtext {
+                font-size: 14px;
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .canvas-headline,
+            .overlay-headline {
+                font-size: 22px;
+            }
+
+            .btn-signup {
+                padding: 6px 10px;
+                font-size: 13px;
             }
         }
     </style>
@@ -574,14 +947,12 @@
     <nav class="top-bar">
         <div class="nav-container">
             <div class="nav-left">
-                <a href="#" class="logo">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M4 4h7v7H4V4zm0 9h7v7H4v-7zm9-9h7v7h-7V4zm0 9h7v7h-7v-7z" />
-                    </svg>
+                <div class="g-4">
+                <img src="./images/image.svg" alt="" />
                     Framer
-                </a>
+                </div>
                 <ul class="nav-links">
-                    <li><a href="#">Why Framer <span class="dropdown-arrow">▼</span></a></li>
+                     <li><a href="#">Why Framer <span class="dropdown-arrow">▼</span></a></li>
                     <li><a href="#">Templates</a></li>
                     <li><a href="#">Community</a></li>
                     <li><a href="#">Resources <span class="dropdown-arrow">▼</span></a></li>
@@ -638,13 +1009,11 @@
         <div class="top-toolbar">
             <div class="toolbar-left">
                 <button class="logo-btn">
-                
-                    <img src="./images/div.framer-1a4o299.svg" alt=""/>
-                    <img src="./images/2nd Sec Navbar/div.framer-1wjm2t1.svg" alt=""/>
+                    <img src="./images/div.framer-1a4o299.svg" alt="" />
+                    <img src="./images/2nd Sec Navbar/div.framer-1wjm2t1.svg" alt="" />
                 </button>
                 <button class="tool-btn">
-                    <span><img src="./images/div.framer-119ysg5.svg" alt="" />
-                    </span> Insert
+                    <span><img src="./images/div.framer-119ysg5.svg" alt="" /></span> Insert
                 </button>
                 <button class="tool-btn">
                     <span><img src="./images/div.framer-1xf8a4e.svg" alt="" /></span> Layout
@@ -658,7 +1027,7 @@
             </div>
             <div class="toolbar-right">
                 <div class="user-avatars">
-                    <img src="images/2nd Sec Navbar/div.framer-gje7dg.svg" alt=""/>
+                    <img src="images/2nd Sec Navbar/div.framer-gje7dg.svg" alt="" />
                 </div>
                 <button class="tool-btn"><img src="./images/2nd Sec Navbar/div.framer-n2odco.svg" alt="" /></button>
                 <button class="tool-btn">
@@ -681,8 +1050,6 @@
         </div>
     </section>
 
-   
-
     <!-- Interactive Canvas Section with Centered Text -->
     <section class="interactive-canvas-section">
         <img src="./images/bg-page3.svg" alt="Interactive canvas" class="canvas-bg-image">
@@ -690,6 +1057,26 @@
             <h2 class="overlay-headline">
                 Design sites on a freeform canvas. Add animations, interactions and a CMS.
             </h2>
+        </div>
+    </section>
+
+    <!-- Publish Section -->
+    <section class="publish-section">
+        <div class="publish-content">
+            <h2 class="publish-headline">
+                Ready to go live?<br>
+                Just hit publish — no<br>
+                rebuilding, no code.
+            </h2>
+
+            <div class="publish-btn-container">
+                <button class="btn-publish">Publish</button>
+                <img src="./images/hand.png" alt="Click pointer" class="hand-pointer">
+            </div>
+
+            <p class="publish-subtext">
+                Deploy instantly with one click
+            </p>
         </div>
     </section>
 
@@ -728,6 +1115,23 @@
                 btnStart.style.transform = 'scale(0.96)';
                 setTimeout(() => {
                     btnStart.style.transform = 'translateY(-1px)';
+                }, 100);
+            });
+        }
+
+        // Publish button click animation
+        const btnPublish = document.querySelector('.btn-publish');
+        if (btnPublish) {
+            btnPublish.addEventListener('click', (e) => {
+                e.preventDefault();
+                btnPublish.style.transform = 'scale(0.96)';
+                setTimeout(() => {
+                    btnPublish.style.transform = 'translateY(-2px)';
+                    // Add success feedback
+                    btnPublish.textContent = '✓ Published';
+                    setTimeout(() => {
+                        btnPublish.textContent = 'Publish';
+                    }, 2000);
                 }, 100);
             });
         }
